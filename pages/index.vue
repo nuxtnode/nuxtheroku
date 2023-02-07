@@ -45,6 +45,7 @@
 
 <script>
 import axios from 'axios'
+import fetch from 'node-fetch'
 const baseUrl = 'http://localhost:3000/api'
 export default{
   head () {
