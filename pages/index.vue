@@ -5,7 +5,7 @@
  
           <v-text-field
             v-model="name"
-            label="First name"
+            label="First Name"
             required
           ></v-text-field>
           <v-text-field
