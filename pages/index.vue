@@ -47,6 +47,11 @@
 import axios from 'axios'
 const baseUrl = 'https://nuxtnode.herokuapp.com/api'
 export default{
+  head () {
+    return {
+      title: 'Noli'
+    }
+  },
   data () {
     return {
       valid: true,
