@@ -10,7 +10,7 @@
           ></v-text-field>
           <v-text-field
             v-model="username"
-            label="Last name"
+            label="Last Name"
             required
           ></v-text-field>
           <v-text-field
