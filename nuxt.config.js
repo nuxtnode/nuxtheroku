@@ -44,7 +44,7 @@ module.exports = {
       loader: 'eslint-loader',
       exclude: /(node_modules)/
       })
-      }
+      } 
       }
     // extend (config, ctx) {
     //   if (ctx.isDev && ctx.isClient) {
