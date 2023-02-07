@@ -32,8 +32,7 @@
   </v-form>
   <h1>List</h1>
   <div v-for="user in users" :key="user.id">
-
-    <p>{{user.name}}</p>
+    <h1>{{user.name}}</h1>
   </div>
       <!-- <v-data-table
       :headers="headers"
