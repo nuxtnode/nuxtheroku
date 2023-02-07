@@ -45,7 +45,7 @@
 
 <script>
 import axios from 'axios'
-const baseUrl = 'https://nuxtnode.herokuapp.com/api'
+const baseUrl = 'http://localhost:3000/api'
 export default{
   head () {
     return {
