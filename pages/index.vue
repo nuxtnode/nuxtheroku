@@ -69,14 +69,17 @@ export default{
   },
   setup () {
   },
-  created() {
-    this.asyncData();
+
+  created(){
+   
   },
+
   methods: {
-    async asyncData () {
+  async asyncData () {
       const response = await axios.get(`${baseUrl}/users`)
       const datas = await response.data
       this.users = datas
+      return {users: this.users}
     },
     async addUser () {
       this.$nuxt.$loading.start()

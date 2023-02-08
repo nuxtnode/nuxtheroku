@@ -1,15 +1,15 @@
 <template>
-  <v-layout>
-    <v-flex text-xs-center>
-      <img src="/v.png" alt="Vuetify.js" class="mb-5">
-      <blockquote class="blockquote">
-        &#8220;First, solve the problem. Then, write the code.&#8221;
-        <footer>
-          <small>
-            <em>&mdash;John Johnson</em>
-          </small>
-        </footer>
-      </blockquote>
-    </v-flex>
-  </v-layout>
+  <div>
+    <h1> {{ title }} </h1>
+    <p> Just check HTML source or inspect window.__NUXT__ </p>
+  </div>
 </template>
+<script>
+export default {
+  asyncData (context) {
+    // will be merged with data object,
+    // so you can use {{ title }}
+    return { title: 'async data' }
+  }
+}
+</script>
