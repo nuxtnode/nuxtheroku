@@ -20,8 +20,10 @@ router.post('/adduser', function (req, res, next) {
     
 })
 
-router.get('/deleteuser', function (req, res, next) {
-    userModel.deleteUser((err, data) => {
+router.delete('/deleteuser/:id', function (req, res, next) {
+    const current_id = req.params.id
+    console.log(current_id)
+    userModel.deleteUser(current_id, (err, data) => {
         res.status(200).json(data);
     });
     

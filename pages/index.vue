@@ -31,8 +31,8 @@
     </v-container>
   </v-form>
   <h1>List</h1>
-  <div v-for="user in users" :key="user.id">
-    <h1>{{user.name}}</h1>
+  <div v-for="(user,i) in users" :key="user.id">
+    <p>{{user.name}} + <button @click="deleteTodo(user,i)">Remove</button></p>
   </div>
       <!-- <v-data-table
       :headers="headers"
@@ -61,26 +61,35 @@ export default{
       username: '',
       password: '',
       todos: {},
-      headers: [
-        {text: 'NAME', value: 'name'},
-        {text: 'USERNAME', value: 'username'}
-      ]
+      // headers: [
+      //   {text: 'NAME', value: 'name'},
+      //   {text: 'USERNAME', value: 'username'}
+      // ]
     }
   },
   setup () {
   },
 
-  created(){
+
+  computed:{
    
   },
 
+    async asyncData () {
+      let { data } = await axios.get(`${baseUrl}/users`)
+      return { users: data }
+    },
+
+
+
   methods: {
-  async asyncData () {
+       async asyncDatas () {
       const response = await axios.get(`${baseUrl}/users`)
       const datas = await response.data
       this.users = datas
-      return {users: this.users}
+            return {users: this.users}
     },
+
     async addUser () {
       this.$nuxt.$loading.start()
       
@@ -89,8 +98,17 @@ export default{
         username:this.username,
         password:this.password
       });
-      this.asyncData();
+      this.asyncDatas();
       this.$nuxt.$loading.finish()
+    },
+
+    async deleteTodo (user, i) {
+      this.$nuxt.$loading.start();
+      console.log(user.id)
+      await axios.delete(`${baseUrl}/deleteuser/` + user.id)
+      this.asyncDatas();
+      this.$nuxt.$loading.finish()
+     
     }
   }
 }

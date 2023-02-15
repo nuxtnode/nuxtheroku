@@ -3,8 +3,7 @@ module.exports = {
   /*
   ** Headers of the page
   */
-  mode: 'universal',
-  target: 'server',
+
   ssr: true,
   head: {
     title: 'nuxt-vuetify-express-mysql',

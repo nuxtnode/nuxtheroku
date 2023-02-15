@@ -8,7 +8,7 @@ let userModel = {};
 userModel.getUsers = (callback) => {
     const conn = mysql.createConnection(dbconfig.connection);
     if (conn) {
-        conn.query('SELECT name FROM users',
+        conn.query('SELECT * FROM users',
             (err, rows) => {
                 if (err) {
                     throw err
@@ -39,10 +39,11 @@ userModel.addUser = (newUser, callback) => {
     }
 }
 
-userModel.deleteUser = (callback) => {
+userModel.deleteUser = (current_id, callback) => {
     const conn = mysql.createConnection(dbconfig.connection);
     if (conn) {
-        conn.query('DELETE FROM users WHERE name = "Avery"',
+        console.log(current_id)
+        conn.query('DELETE FROM users WHERE id = ?', [current_id] ,
             (err, rows) => {
                 if (err) {
                     throw err
