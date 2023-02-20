@@ -34,18 +34,13 @@
   <div v-for="user in users" :key="user.id">
     <h1>{{user.name}}</h1>
   </div>
-      <!-- <v-data-table
-      :headers="headers"
-      :items="users"
-      hide-default-header
-      class="elevation-1"
-    ></v-data-table> -->
 </div>
 </template>
 
 <script>
 import axios from 'axios'
-const baseUrl = 'https://nuxtnode.herokuapp.com/api'
+// const baseUrl = 'https://nuxtnode.herokuapp.com/api'
+const baseUrl = 'http://localhost:3000/api'
 export default{
   head () {
     return {
