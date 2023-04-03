@@ -25,7 +25,7 @@ userModel.getUsers = (callback) => {
 userModel.addUser = (newUser, callback) => {
     const conn = mysql.createConnection(dbconfig.connection);
     if (conn) {
-        conn.query('INSERT INTO users(name, username, password) VALUES (?, ?, ?)', [newUser.name, newUser.username, newUser.password],
+        conn.query('INSERT INTO users(fullname, email, password) VALUES (?, ?, ?)', [newUser.name, newUser.username, newUser.password],
             (err, rows) => {
                 if (err) {
                     throw err
