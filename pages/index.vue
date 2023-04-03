@@ -32,7 +32,7 @@
   </v-form>
   <h1>List</h1>
   <div v-for="(user,i) in users" :key="user.id">
-    <p>{{user.name}} + <button @click="deleteTodo(user,i)">Remove</button></p>
+    <p>{{user.fullname}} + <button @click="deleteTodo(user,i)">Remove</button></p>
   </div>
       <!-- <v-data-table
       :headers="headers"
@@ -83,11 +83,11 @@ export default{
 
 
   methods: {
-       async asyncDatas () {
+      async asyncDatas () {
       const response = await axios.get(`${baseUrl}/users`)
       const datas = await response.data
       this.users = datas
-            return {users: this.users}
+       return {users: this.users}
     },
 
     async addUser () {
